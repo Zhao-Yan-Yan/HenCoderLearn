@@ -29,7 +29,7 @@ class PieView : View {
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val radius = 150.dp
     private val offset = 20.dp
-    private val currentSelect = 1
+    private val currentSelect = 0
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)

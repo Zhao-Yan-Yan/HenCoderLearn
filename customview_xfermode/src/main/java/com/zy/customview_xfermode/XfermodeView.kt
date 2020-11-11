@@ -13,8 +13,30 @@ import android.view.View
  * @CreateDate: 2020/11/10 19:02
  */
 class XfermodeView : View {
+
+    private val modes = arrayOf(
+        PorterDuff.Mode.ADD,
+        PorterDuff.Mode.CLEAR,
+        PorterDuff.Mode.DARKEN,
+        PorterDuff.Mode.DST,
+        PorterDuff.Mode.DST_ATOP,
+        PorterDuff.Mode.DST_IN,
+        PorterDuff.Mode.DST_OUT,
+        PorterDuff.Mode.DST_OVER,
+        PorterDuff.Mode.LIGHTEN,
+        PorterDuff.Mode.MULTIPLY,
+        PorterDuff.Mode.OVERLAY,
+        PorterDuff.Mode.SCREEN,
+        PorterDuff.Mode.SRC,
+        PorterDuff.Mode.SRC_ATOP,
+        PorterDuff.Mode.SRC_IN,
+        PorterDuff.Mode.SRC_OUT,
+        PorterDuff.Mode.SRC_OVER,
+        PorterDuff.Mode.XOR,
+    )
+
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
+        private val xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
@@ -24,27 +46,8 @@ class XfermodeView : View {
         defStyleAttr
     )
 
-    val bitmap = getBitmap(500)
-
-    val rect = RectF(0f, 0f, bitmap.width.toFloat(), bitmap.height.toFloat())
-
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val saveLayer = canvas.saveLayer(rect, null)
-        canvas.drawOval(rect, paint)
-        paint.xfermode = xfermode
-        canvas.drawBitmap(bitmap, 0f, 0f, paint)
-        paint.xfermode = null
-        canvas.restoreToCount(saveLayer)
-    }
 
-    fun getBitmap(width: Int): Bitmap {
-        val options = BitmapFactory.Options()
-        options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.mipmap.test, options)
-        options.inJustDecodeBounds = false
-        options.inDensity = options.outWidth
-        options.inTargetDensity = width
-        return BitmapFactory.decodeResource(resources, R.mipmap.test, options)
     }
 }
