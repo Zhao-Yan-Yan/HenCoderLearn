@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     tools:visibility="visible">
 
-    <com.zy.customview_text.CenterTextView
+    <com.zy.customview_text.MultiTextImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

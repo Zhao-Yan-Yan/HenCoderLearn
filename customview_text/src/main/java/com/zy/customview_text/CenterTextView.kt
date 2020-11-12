@@ -67,16 +67,16 @@ class CenterTextView : View {
         paint.textAlign = Paint.Align.CENTER
         paint.getTextBounds(textContent, 0, textContent.length, textRect)
 
+        textContent = "abab"
         Log.e("TAG", "onDraw: $textRect")
         canvas.drawText(textContent, width / 2f, height / 2f + textRect.height() / 2, paint)
 
+        textContent = "qbgyjacv"
         paint.getFontMetrics(fontMetrics)
         Log.e(
             "TAG",
             "onDraw: ${fontMetrics.ascent} , ${fontMetrics.descent} , ${fontMetrics.top} , ${fontMetrics.bottom} , ${fontMetrics.leading}"
         )
-
-        textContent = "qbgyjacv"
         canvas.drawText(
             textContent,
             width / 2f,
@@ -85,21 +85,27 @@ class CenterTextView : View {
         )
 
         textContent = "贴左上边"
+        paint.getTextBounds(textContent, 0, textContent.length, textRect)
+        paint.getFontMetrics(fontMetrics)
         paint.textAlign = Paint.Align.LEFT
         canvas.drawText(textContent, 0f, 0f - fontMetrics.top, paint)
 
 
         textContent = "贴左下边"
-
+        paint.getTextBounds(textContent, 0, textContent.length, textRect)
+        paint.getFontMetrics(fontMetrics)
         canvas.drawText(textContent, 0f, height.toFloat() - fontMetrics.bottom, paint)
 
         textContent = "贴右上边"
         paint.textAlign = Paint.Align.RIGHT
+        paint.getTextBounds(textContent, 0, textContent.length, textRect)
+        paint.getFontMetrics(fontMetrics)
         canvas.drawText(textContent, width.toFloat(), 0f - fontMetrics.top, paint)
 
         textContent = "贴右下边"
         paint.textAlign = Paint.Align.RIGHT
-        canvas.drawText(textContent, width.toFloat() , height - fontMetrics.bottom, paint
-        )
+        paint.getTextBounds(textContent, 0, textContent.length, textRect)
+        paint.getFontMetrics(fontMetrics)
+        canvas.drawText(textContent, width.toFloat(), height - fontMetrics.bottom, paint)
     }
 }
