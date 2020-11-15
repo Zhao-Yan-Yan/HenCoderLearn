@@ -1,3 +1,4 @@
+include ':customview_clip_camera'
 include ':customview_text'
 include ':customview_xfermode'
 include ':customview'
