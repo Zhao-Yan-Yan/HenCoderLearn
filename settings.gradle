@@ -1,3 +1,4 @@
+include ':customview_bitmap_drawable'
 include ':customview_animation'
 include ':customview_clip_camera'
 include ':customview_text'
